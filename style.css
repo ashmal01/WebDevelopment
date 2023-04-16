@@ -1,36 +1,91 @@
-h1{
-    text-align: center;
-    color: red;
-    font-size: 30px;
-}
-.simple{
-    text-align: center;
-    color: blue;
-    font-size: medium;
-}
-/* This is for Tabl*/
-table{
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-td , th{
-    border: 1px solid black;
-    padding: 2px;
-}
-/*th{
-    border: 1px solid black;
-    padding: 2px;
-}*/
-a[href="https://www.havard.edu"]{
-    color: red;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: rgb(17, 153, 119);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
     text-decoration: none;
-}
-button{
-    background-color: red;
-    width: 200px;
-    height: 50px;
-    font-size: 20px;
-}
-button:hover{
-    background-color: yellow;
-}
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  table {
+    border-collapse: collapse;
+    margin: 20px auto;
+  }
+  
+  td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  footer {
+    background-color: rgb(134, 14, 114);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  /* Responsive styles */
+  
+  @media only screen and (max-width: 600px) {
+      /* Header styles */
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 10px;
+      }
+      nav ul {
+        flex-direction: column;
+      }
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      /* Table styles */
+      table {
+        width: 100%;
+      }
+      td {
+        display: block;
+        width: 100%;
+      }
+    }
+    img{
+      width: 450px;
+      height: 320px;
+      padding: 20px;
+      border-radius: 20%;
+      
+    }
+    img:hover{
+      opacity: 0.5;
+    }
+   ol li{
+      font-size: 20px;
+      font-family: lucida Calligraphy;
+   }
