@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assistance Tracker</title>
+</head>
+<body>
+  <form>
+    <label for="entry">Entry</label>
+    <input type="text" id="entry" placeholder="DIRECTORY_ID, DESCRIPTION, DURATION" /> <br><br>
+    <button type="button" onclick="addEntry()">Add Entry</button>
+    <button type="button" onclick="summary()">Summary</button>
+  </form>
+  <div id="entries">
+    <h2>Entries</h2>
+    <ul id="entryList"></ul>
+  </div>
+  <div id="summary">
+    <h2>Summary</h2>
+    <p id="entryCount"></p>
+    <ul id="sortedEntries"></ul>
+  </div>
+
+  <script>
+    let assistanceEntries = [];
+
+    function addEntry() {
+      const entryInput = document.getElementById('entry').value.trim();
+
+      if (entryInput === '') {
+        alert('Invalid entry');
+        return;
+      }
+
+      const entryParts = entryInput.split(',');
+      if (entryParts.length !== 3) {
+        alert('Invalid entry');
+        return;
+      }
+
+      const directoryId = entryParts[0].trim();
+      const description = entryParts[1].trim();
+      const duration = entryParts[2].trim();
+
+      const entry = {
+        directoryId,
+        description,
+        duration
+      };
+
+      assistanceEntries.push(entry);
+
+      const entryList = document.getElementById('entryList');
+      const newEntryItem = document.createElement('li');
+      newEntryItem.textContent = `${directoryId} - ${description} (${duration})`;
+      entryList.appendChild(newEntryItem);
+
+      document.getElementById('entry').value = '';
+    }
+
+    function summary() {
+      const entryCount = document.getElementById('entryCount');
+      const sortedEntries = document.getElementById('sortedEntries');
+
+      entryCount.textContent = `Entry count: ${assistanceEntries.length}`;
+
+      // Sort entries by duration
+      const sorted = assistanceEntries.sort((a, b) => a.duration - b.duration);
+
+      sortedEntries.innerHTML = ''; // Clear previous entries
+
+      for (let i = 0; i < sorted.length; i++) {
+        const entry = sorted[i];
+        const newEntryItem = document.createElement('li');
+        newEntryItem.textContent = `${entry.directoryId} - ${entry.description} (${entry.duration})`;
+        sortedEntries.appendChild(newEntryItem);
+      }
+    }
+  </script>
+</body>
+</html>
